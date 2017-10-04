@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<h:outputStylesheet library="css" name="table-style.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Add or Edit Contact</title>
+</h:head>
+<h:body>
+	<h:form>
+   		<td><h:inputText id="search" value="#{contactController.search}" /></td>
+   		<td><h:commandButton value="Search" action="#{contactController.searchContacts}"/></td>
+	</h:form>
+	<h:form id="form">
+
+		<h:dataTable id="dataTable" value="#{contactController.contacts}" var="c"
+			captionStyle="font-size:20px" styleClass="contact-table"
+			headerClass="contact-table-header"
+			rowClasses="contact-table-oddRow,contact-table-evenRow">
+
+			<f:facet name="caption">Contact List</f:facet>
+
+			<h:column>
+				<f:facet name="header">Name</f:facet>
+				#{c.name}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">E-mail</f:facet>
+				#{c.email}	
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Address</f:facet>
+				#{c.address}
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">Phone</f:facet>
+				#{c.phone}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Edit</f:facet>				
+				<h:commandLink value="Edit" action="#{contactController.editContact(c.id, c.name, c.email, c.address, c.phone)}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Delete</f:facet>				
+				<h:commandLink value="Delete" action="#{contactController.deleteContact(c.id)}" />
+			</h:column>
+
+		</h:dataTable>
+	</h:form>
+	<h:form>
+		<td><h:commandButton value="New Contact" action="#{contactController.addContact}"/></td>
+	</h:form>
+</h:body>
+</html>

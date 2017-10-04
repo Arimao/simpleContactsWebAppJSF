@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<h:outputStylesheet library="css" name="table-style.css" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Simple Contacts Web App</title>
+</h:head>
+<h:body>
+
+	<h:form id="form">
+
+		<h3>Add contact</h3>
+		<table id="myTable">
+			<h:inputHidden id="id" value="#{contactController.id}" />
+			<tr>
+				<td>Name:</td>
+				<td><h:inputText id="name" value="#{contactController.name}" validator="#{contactController.checkName}" /></td>
+				<td><h:message for="name" style ="color:blue" /></td>
+			</tr>
+			<tr>
+				<td>E-mail:</td>
+				<td><h:inputText  id="email" value="#{contactController.email}" validator="#{contactController.checkEmail}" /></td>
+				<td><h:message for="email" style ="color:blue" /></td>
+			</tr>
+			<tr>
+				<td>Address:</td>
+				<td><h:inputText  id="address" value="#{contactController.address}" /></td>
+			</tr>
+			<tr>
+				<td>Telephone:</td>
+				<td><h:inputText  id="phone" value="#{contactController.phone}" validator="#{contactController.checkPhone}" /></td>
+				<td><h:message for="phone" style ="color:blue" /></td>
+			</tr>
+		</table>
+		<p>
+			<h:commandButton value="Add" action="#{contactController.saveContact}"/>				
+		</p>
+	</h:form>
+
+</h:body>
+</html>

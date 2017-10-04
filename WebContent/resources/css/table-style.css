@@ -1,0 +1,22 @@
+.contact-table{   
+	border-collapse:collapse;
+}
+
+.contact-table-header{
+	text-align:center;
+	background:#5d9de4;
+	padding:20px;
+	color: white;
+}
+
+.contact-table-oddRow{
+	text-align:center;
+	background:#eaeaea;
+	border-top:1px solid #BBBBBB;
+}
+
+.contact-table-evenRow{
+	text-align:center;
+	background:#F9F9F9;
+	border-top:1px solid #BBBBBB;
+}
