@@ -1,6 +1,6 @@
 # Simple Contacts App
 
-This is a simple contacts app developed using Spring MVC, Maven and Hibernate with Java.
+This is a simple contacts app developed using JSF, Maven and Hibernate with Java.
 
 ## Getting Started
 
